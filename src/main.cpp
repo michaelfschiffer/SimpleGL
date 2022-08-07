@@ -19,6 +19,7 @@
 #include "tests/Test.h"
 #include "tests/TestClearColor.h"
 #include "tests/TestTexture2D.h"
+#include "tests/TestTriangle2D.h"
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -75,6 +76,7 @@ int main()
 	
 	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 	testMenu->RegisterTest<test::TestTexture2D>("Test Texture 2D");
+	testMenu->RegisterTest<test::TestTriangle2D>("Triangle 2D");
 	
 	while (!glfwWindowShouldClose(window))
 	{

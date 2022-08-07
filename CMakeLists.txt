@@ -28,6 +28,8 @@ add_executable(SimpleGL
 "src/tests/TestClearColor.cpp"
 "src/tests/TestTexture2D.h"
 "src/tests/TestTexture2D.cpp"
+"src/tests/TestTriangle2D.h"
+"src/tests/TestTriangle2D.cpp"
 ) 
 
 find_package(glfw3 CONFIG REQUIRED)
