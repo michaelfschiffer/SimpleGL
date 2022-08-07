@@ -15,9 +15,9 @@ namespace test
     {
         float positions[] = 
         {
-            -50.0f, -50.0f, 0.0f, 0.0f,
-             50.0f, -50.0f, 1.0f, 0.0f,
-             50.0f,  50.0f, 1.0f, 1.0f
+            -200.0f, -200.0f, 0.0f, 0.0f,
+             200.0f, -200.0f, 1.0f, 0.0f,
+             200.0f,  200.0f, 1.0f, 1.0f
         };
 
         unsigned int indices[] =
