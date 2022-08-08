@@ -80,9 +80,10 @@ int Shader::CreateShader(const std::string& vertexShader, const std::string& fra
 
 int Shader::GetUniformLocation(const std::string& name)
 {
-    if (uniformLocationCache.find(name) != uniformLocationCache.end())
+	auto f = uniformLocationCache.find(name);
+    if ( f != uniformLocationCache.end())
     {
-        return uniformLocationCache[name];
+		return f->second;
     }
     GLCall(int location = glGetUniformLocation(rendererID, name.c_str()));
     if (location == -1)
