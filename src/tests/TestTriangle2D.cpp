@@ -11,7 +11,9 @@ namespace test
        : translation(200, 200, 0),
        proj(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f)),
        view(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0))),
-       color {1.0f, 1.0f, 1.0f, 1.0f }
+       color {1.0f, 1.0f, 1.0f, 1.0f },
+       rotation { 0.0f, 0.0f, 0.0f },
+       scale {1.0f, 1.0f, 1.0f}
     {
         float positions[] = 
         {
@@ -51,7 +53,11 @@ namespace test
     {
         Renderer renderer; 
         glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
-        model = glm::rotate(model, glm::degrees(rotationDegrees), glm::vec3(0.0, 0.0, 1.0));
+        model = glm::rotate(model, glm::degrees(rotation.x), glm::vec3(1.0, 0.0, 1.0));
+        model = glm::rotate(model, glm::degrees(rotation.y), glm::vec3(0.0, 1.0, 0.0));
+        model = glm::rotate(model, glm::degrees(rotation.z), glm::vec3(0.0, 0.0, 1.0));
+        
+        model = glm::scale(model, scale);
         glm::mat4 mvp = proj * view * model;
         shader->Bind();
         shader->SetUniformMat4f("u_MVP", mvp);
@@ -62,7 +68,8 @@ namespace test
     void TestTriangle2D::OnImGuiRender()
     {
         ImGui::SliderFloat2("Translation A", &translation.x, 0.0f, 960.0f);
-        ImGui::SliderFloat("Rotation Degrees", &rotationDegrees, 0.0f, 360.0f);
+        ImGui::SliderFloat3("Rotation", &rotation.x, 0.0f, 360.0f);
+        ImGui::SliderFloat3("Scale", &scale.x, 0.0f, 5.0f);
         ImGui::ColorPicker4("Colors", color);
     }
 
