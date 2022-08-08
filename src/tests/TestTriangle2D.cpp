@@ -34,6 +34,7 @@ namespace test
         indexBuffer = std::make_unique<IndexBuffer>(indices, 3);
 
 
+
         shader = std::make_unique<Shader>("res/shaders/triangle.glsl");
     }
     
@@ -50,6 +51,7 @@ namespace test
     {
         Renderer renderer; 
         glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+        model = glm::rotate(model, glm::degrees(rotationDegrees), glm::vec3(0.0, 0.0, 1.0));
         glm::mat4 mvp = proj * view * model;
         shader->Bind();
         shader->SetUniformMat4f("u_MVP", mvp);
@@ -60,6 +62,7 @@ namespace test
     void TestTriangle2D::OnImGuiRender()
     {
         ImGui::SliderFloat2("Translation A", &translation.x, 0.0f, 960.0f);
+        ImGui::SliderFloat("Rotation Degrees", &rotationDegrees, 0.0f, 360.0f);
         ImGui::ColorPicker4("Colors", color);
     }
 

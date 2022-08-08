@@ -29,6 +29,7 @@ namespace test
         
         glm::mat4 proj, view;
         glm::vec3 translation;
+        float rotationDegrees;
         float color[4];
     };
  };
