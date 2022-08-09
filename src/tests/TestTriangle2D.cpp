@@ -12,7 +12,7 @@ namespace test
        proj(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f)),
        view(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0))),
        color {1.0f, 1.0f, 1.0f, 1.0f },
-       rotation { 0.0f, 0.0f, 0.0f },
+       rotation {1.0f, 1.0f, 1.0f},
        scale {1.0f, 1.0f, 1.0f}
     {
         float positions[] = 

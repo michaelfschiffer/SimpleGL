@@ -20,6 +20,7 @@
 #include "tests/TestClearColor.h"
 #include "tests/TestTexture2D.h"
 #include "tests/TestTriangle2D.h"
+#include "tests/Test3DCube.h"
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -67,8 +68,6 @@ int main()
 	
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-	GLCall(glEnable(GL_BLEND));
-	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	Renderer renderer;
 	test::Test* currentTest = nullptr;
 	test::TestMenu* testMenu = new test::TestMenu(currentTest);
@@ -77,7 +76,7 @@ int main()
 	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 	testMenu->RegisterTest<test::TestTexture2D>("Test Texture 2D");
 	testMenu->RegisterTest<test::TestTriangle2D>("Triangle 2D");
-	
+	testMenu->RegisterTest<test::TestCube3D>("Cube 3D");	
 	while (!glfwWindowShouldClose(window))
 	{
 		
