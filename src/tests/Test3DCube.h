@@ -22,54 +22,13 @@ namespace test
         void OnImGuiRender() override;
         
     private:
+        std::unique_ptr<VertexArray> vao;
+        std::unique_ptr<VertexBuffer> vertexBuffer;
+        std::unique_ptr<IndexBuffer> indexBuffer;
         std::unique_ptr<Shader> shader;
-        unsigned int vao,vbo;
-        glm::mat4 proj, view;
+        glm::mat4 proj, view, model;
         glm::vec3 translationA;
-        float positions[108] =
-        {
-             -0.5f, -0.5f, -0.5f,
-             0.5f, -0.5f, -0.5f,
-             0.5f, 0.5f, -0.5f,
-             0.5f, 0.5f, -0.5f,
-             -0.5f, 0.5f, -0.5f,
-            -0.5f, -0.5f, -0.5f,
-
-            -0.5f, -0.5f, 0.5f,
-            0.5f, -0.5f, 0.5f, 
-            0.5f, 0.5f, 0.5f,
-            0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, 0.5f, 
-            -0.5f, -0.5f, 0.5f,
-
-            -0.5f, 0.5f, 0.5f, 
-            -0.5f, 0.5f, -0.5f,
-            -0.5f, -0.5f, -0.5f,
-            -0.5f, -0.5f, -0.5f,
-            -0.5f, -0.5f, 0.5f,
-            -0.5f, 0.5f, 0.5f, 
-
-            0.5f, 0.5f, 0.5f,
-            0.5f, 0.5f, -0.5f, 
-            0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, 0.5f, 
-            0.5f, 0.5f, 0.5f,   
-
-            -0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, -0.5f,
-            0.5f, -0.5f, 0.5f, 
-            0.5f, -0.5f, 0.5f, 
-            -0.5f, -0.5f, 0.5f,
-            -0.5f, -0.5f, -0.5f,
-
-            -0.5f, 0.5f, -0.5f,
-            0.5f, 0.5f, -0.5f, 
-            0.5f, 0.5f, 0.5f,
-            0.5f, 0.5f, 0.5f,
-            -0.5f, 0.5f, 0.5f, 
-            -0.5f, 0.5f, -0.5f
-
-        };
+        bool rotating;
+        
     };
  };
